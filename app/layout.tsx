@@ -8,6 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 import GameOfLifeBackground from './components/GameOfLifeBackground'
+import React, { useEffect, useState } from 'react'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -48,23 +49,22 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
         GeistSans.variable,
         GeistMono.variable
       )}
     >
       <head>
         <link rel="icon" href="/favicon.svg" />
-      </head>
-      <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto">
-        <GameOfLifeBackground />
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      </head>      
+      <body className="antialiased">
+          <GameOfLifeBackground />
           <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-4xl mx-4 lg:mx-auto">
+            {children}
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </main>
       </body>
     </html>
   )

@@ -1,10 +1,7 @@
 "use client";
-
 import React, { useRef, useEffect, useState } from 'react';
 
-const CELL_SIZE = 24; // px (increased for much larger cells)
-const ALIVE_COLOR = 'rgb(73, 73, 73)';
-const DEAD_COLOR = 'rgba(0,0,0,0)';
+const CELL_SIZE = 24;
 const TICK_MS = 180;
 
 function randomGrid(width: number, height: number): number[][] {
@@ -84,6 +81,8 @@ const GameOfLifeBackground: React.FC = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const grid = gridRef.current;
+      const ALIVE_COLOR = 'rgb(15, 15, 15)';
+      const DEAD_COLOR = 'rgb(0, 0, 0)';
       for (let y = 0; y < dimensions.gridH; y++) {
         for (let x = 0; x < dimensions.gridW; x++) {
           ctx.fillStyle = grid[y][x] ? ALIVE_COLOR : DEAD_COLOR;
@@ -119,8 +118,9 @@ const GameOfLifeBackground: React.FC = () => {
         height: '100vh',
         zIndex: -1,
         pointerEvents: 'none',
-        opacity: 0.18,
+        opacity: 1,
         background: 'transparent',
+        transition: 'background 0.3s, opacity 0.3s',
       }}
       aria-hidden="true"
     />

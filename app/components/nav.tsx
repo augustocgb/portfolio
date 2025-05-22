@@ -1,18 +1,19 @@
+"use client"
 import Link from 'next/link'
 
 const navItems = {
   '/': {
     name: 'Home',
-  },
-  '/#projects': {
+  },  
+  '/projects': {
     name: 'Projects',
   },
 }
 
 export function Navbar() {
-  return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
+  return (    
+  <aside className="sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur mb-16 tracking-tight">
+      <div className="max-w-4xl mx-4 lg:mx-auto">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
