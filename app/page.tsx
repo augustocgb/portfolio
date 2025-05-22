@@ -7,7 +7,7 @@ export default function HomePage() {
       <section className="flex flex-col items-center text-center py-20">
         <div className="animate-fadeinup">
           <Image
-            src="/static/images/headshot_fbla.png"
+            src="/images/headshot_fbla.png"
             alt="Augusto Butkewitsch"
             width={220}
             height={220}
