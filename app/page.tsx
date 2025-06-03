@@ -1,146 +1,74 @@
 import Image from 'next/image'
+import { Card } from './components/Card'
+import { Button } from './components/Button'
 
 export default function HomePage() {
   return (
-    <div className="space-y-12 text-black dark:text-neutral-200">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center text-center py-20">
-        <div className="animate-fadeinup">
+    <div className="space-y-16 animate-fade-in">
+      <section className="text-center">
+        <div className="animate-fade-up">
           <Image
+            className="rounded-full border-[4px] mx-auto mb-8 border-[--text-primary] shadow-lg"
             src="/images/headshot_fbla.png"
             alt="Augusto Butkewitsch"
             width={220}
             height={220}
-            className="rounded-full border-4 border-gray-300 dark:border-gray-700 mb-8 shadow-2xl mx-auto"
           />
-          {/* Text color for h1 */}
-          <h1 className="text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">Augusto Butkewitsch</h1>
-          {/* Text color for p */}
-          <p className="text-2xl mb-2 text-neutral-700 dark:text-neutral-300">
+          <h1 className="text-5xl font-bold mb-4">Augusto Butkewitsch</h1>
+          <p className="text-2xl opacity-80 mb-8">
             Statistician | Analytical | Problem Solver
           </p>
+          <div className="flex gap-4 justify-center">
+            <Button
+              href="https://github.com/augustocgb"
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              }
+              label="GitHub"
+            />
+            <Button
+              href="https://www.linkedin.com/in/augustobutkewitsch"
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              }
+              label="LinkedIn"
+            />
+            <Button
+              href="mailto:augustobutkewitsch@gmail.com"
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              }
+              label="Email"
+            />
+          </div>
         </div>
       </section>
 
-      <p>This website is still under construction!</p>
+      <div className="grid gap-8 md:grid-cols-1">
+        <Card>
+          <h2 className="text-2xl font-bold mb-4">About</h2>
+          <p className="animate-fade-up">
+            I am currently an undergraduate student at Purdue Univeristy. 
+            My interests include artificial intelligence, software engineering, and data visualization. 
+            I am passionate about using technology to solve real-world problems and improve people's lives.
+          </p>
+        </Card>
 
-      {/* About Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">About</h2>
-        {/* Paragraph text will inherit from the main div's text-neutral-800 dark:text-neutral-200 */}
-        <p>
-          I am currently an undergraduate student at Purdue Univeristy. My interests include artificial intelligence, software engineering, and data visualization. I am passionate about using technology to solve real-world problems and improve people's lives.
-        </p>
-      </section>
-
-      {/* Education Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">Education</h2>
-        <ul className="list-disc ml-6">
-          {/* List item text will inherit */}
-          <li>
-            BSc in Computer Science, Mathematics, and Statistics, Purdue University<br />
-            - GPA: 3.9/4.0<br />
-            - Expected Graduation: May 2027<br />
-          </li>
-        </ul>
-      </section>
-
-      {/* Experience Section */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">Experience</h2>
-        <ul className="space-y-6 ml-6">
-          <li className="flex items-start">
-            {/* Adjusted date text color for better dark mode visibility */}
-            <div className="flex flex-col items-center justify-center pr-6 min-w-[110px] text-gray-600 dark:text-gray-400 whitespace-nowrap">
-              <span className="text-center">Aug 2023</span>
-              <span className="block text-lg leading-none mx-auto">|</span>
-              <span className="text-center">Present</span>
-            </div>
-            <div className="pl-6 border-l-2 border-gray-300 dark:border-gray-700 flex-1">
-              {/* Strong and regular text will inherit, or you can be more specific */}
-              <strong className="text-neutral-900 dark:text-neutral-100">Undergraduate Software Developer</strong>, Envision Center<br />
-              - Developing Unity C# and React applications for educational data visualization.<br />
-              - Collaborating with researchers and university faculty to bring advanced 3D labs to life.<br />
-              - Reaching over 1000 students with interactive learning experiences in chemistry and engineering departments.<br />
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="flex flex-col items-center justify-center pr-6 min-w-[110px] text-gray-600 dark:text-gray-400 whitespace-nowrap">
-              <span className="text-center">Feb 2022</span>
-              <span className="block text-lg leading-none mx-auto">|</span>
-              <span className="text-center">Jul 2022</span>
-            </div>
-            <div className="pl-6 border-l-2 border-gray-300 dark:border-gray-700 flex-1">
-              <strong className="text-neutral-900 dark:text-neutral-100">Technical Support Intern</strong>, OmniQuest<br />
-              - Learned foundations of optimization, statistics, and simulation.<br />
-              - Developed response surfaces through Design of Experiments (DoE) and scientific software.<br />
-              - Planned, recorded, and edited technical reports and video tutorials accessible to pre-university audiences.<br />
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      {/* Research Section */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">Research</h2>
-        <ul className="space-y-6 ml-6">
-          <li className="flex items-start">
-            <div className="flex flex-col items-center justify-center pr-6 min-w-[110px] text-gray-600 dark:text-gray-400 whitespace-nowrap">
-              <span className="text-center">Aug 2024</span>
-              <span className="block text-lg leading-none mx-auto">|</span>
-              <span className="text-center">May 2025</span>
-            </div>
-            <div className="pl-6 border-l-2 border-gray-300 dark:border-gray-700 flex-1">
-              <strong className="text-neutral-900 dark:text-neutral-100">Undergraduate Data Science Research</strong>, The Data Mine - BASF Corporate Partner<br />
-              - Analyzed crop data and market indicators to identify trends for crop yield and price prediction.<br />
-              - Learned about machine learning, feature engineering, and time series analysis.<br />
-              - Developed predictive models (ARIMA, XGBoost, LSTM) to forecast future market conditions.<br />
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="flex flex-col items-center justify-center pr-6 min-w-[110px] text-gray-600 dark:text-gray-400 whitespace-nowrap">
-              <span className="text-center">Jan 2025</span>
-              <span className="block text-lg leading-none mx-auto">|</span>
-              <span className="text-center">May 2025</span>
-            </div>
-            <div className="pl-6 border-l-2 border-gray-300 dark:border-gray-700 flex-1">
-              <strong className="text-neutral-900 dark:text-neutral-100">Undergraduate Mathematics Research</strong>, Purdue Experimental Math Lab<br />
-              - Researched and implemented several algorithms for fractal and complex number arithmetic.<br />
-              - Created interactive graphics apps to visualize Julia Sets in various 2D and 3D contexts.<br />
-              - Deployed sophisticated web-based interfaces available for fractal exploration.<br />
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      {/* Projects Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">Projects</h2>
-        <ul className="list-disc ml-6">
-          <li>
-            <strong className="text-neutral-900 dark:text-neutral-100">Personal Portfolio Website</strong><br />
-            - Designed and developed this portfolio using Next.js and Tailwind CSS.<br />
-            - Showcases research, projects, and publications.
-          </li>
-        </ul>
-      </section>
-
-      {/* Contact Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100">Contact</h2>
-        <p>Email: augustobutkewitsch@gmail.com</p>
-        <p>
-          LinkedIn:{' '}
-          {/* Adjusted link color for dark mode */}
-          <a
-            href="https://www.linkedin.com/in/augustobutkewitsch/"
-            className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300"
-          >
-            https://www.linkedin.com/in/augustobutkewitsch/
-          </a>
-        </p>
-      </section>
+        <Card>
+          <h2 className="text-2xl font-bold mb-4">Education</h2>
+          <div className="animate-fade-up">
+            <h3 className="font-semibold">Purdue University</h3>
+            <p>BSc in Computer Science, Mathematics, and Statistics</p>
+            <p className="opacity-80">Expected May 2027 • GPA: 3.9/4.0</p>
+          </div>
+        </Card>
+      </div>
     </div>
   )
 }

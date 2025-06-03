@@ -1,130 +1,109 @@
-"use client";
-import React, { useRef, useEffect, useState } from 'react';
+"use client"
+import { useRef, useEffect, useState } from 'react'
+import { useTheme } from './ThemeProvider'
 
-const CELL_SIZE = 24;
-const TICK_MS = 180;
+const CELL_SIZE = 24
+const TICK_MS = 180
 
 function randomGrid(width: number, height: number): number[][] {
-  const grid: number[][] = [];
-  for (let y = 0; y < height; y++) {
-    const row: number[] = [];
-    for (let x = 0; x < width; x++) {
-      row.push(Math.random() > 0.7 ? 1 : 0);
-    }
-    grid.push(row);
-  }
-  return grid;
+  return Array(height).fill(0).map(() => 
+    Array(width).fill(0).map(() => Math.random() > 0.7 ? 1 : 0)
+  )
 }
 
 function nextGrid(grid: number[][], width: number, height: number): number[][] {
-  const newGrid: number[][] = [];
-  for (let y = 0; y < height; y++) {
-    const row: number[] = [];
-    for (let x = 0; x < width; x++) {
-      let neighbors = 0;
+  return grid.map((row, y) => 
+    row.map((cell, x) => {
+      let neighbors = 0
       for (let dy = -1; dy <= 1; dy++) {
         for (let dx = -1; dx <= 1; dx++) {
-          if (dx === 0 && dy === 0) continue;
-          const ny = y + dy;
-          const nx = x + dx;
+          if (dx === 0 && dy === 0) continue
+          const ny = y + dy, nx = x + dx
           if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
-            neighbors += grid[ny][nx];
+            neighbors += grid[ny][nx]
           }
         }
       }
-      if (grid[y][x]) {
-        row.push(neighbors === 2 || neighbors === 3 ? 1 : 0);
-      } else {
-        row.push(neighbors === 3 ? 1 : 0);
-      }
-    }
-    newGrid.push(row);
-  }
-  return newGrid;
+      return neighbors === 3 || (cell === 1 && neighbors === 2) ? 1 : 0
+    })
+  )
 }
 
-const GameOfLifeBackground: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0, gridW: 0, gridH: 0 });
-  const gridRef = useRef<number[][]>([]);
+export default function GameOfLifeBackground() {
+  const { theme } = useTheme()
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0, gridW: 0, gridH: 0 })
+  const gridRef = useRef<number[][]>([])
 
-  // Handle resizing
   useEffect(() => {
-    function updateDimensions() {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      const gridW = Math.ceil(w / CELL_SIZE);
-      const gridH = Math.ceil(h / CELL_SIZE);
-      setDimensions({ width: gridW * CELL_SIZE, height: gridH * CELL_SIZE, gridW, gridH });
+    const updateDimensions = () => {
+      const w = window.innerWidth, h = window.innerHeight
+      const gridW = Math.ceil(w / CELL_SIZE), gridH = Math.ceil(h / CELL_SIZE)
+      setDimensions({ width: gridW * CELL_SIZE, height: gridH * CELL_SIZE, gridW, gridH })
     }
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
 
-  // Initialize grid on mount or resize
   useEffect(() => {
     if (dimensions.gridW && dimensions.gridH) {
-      gridRef.current = randomGrid(dimensions.gridW, dimensions.gridH);
+      gridRef.current = randomGrid(dimensions.gridW, dimensions.gridH)
     }
-  }, [dimensions.gridW, dimensions.gridH]);
+  }, [dimensions.gridW, dimensions.gridH])
 
-  // Animation loop
   useEffect(() => {
-    if (!dimensions.gridW || !dimensions.gridH) return;
-    let animationId: number;
-    let running = true;
+    if (!dimensions.gridW || !dimensions.gridH) return
+    let running = true
+
     const draw = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const grid = gridRef.current;
-      const ALIVE_COLOR = 'rgb(15, 15, 15)';
-      const DEAD_COLOR = 'rgb(0, 0, 0)';
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      const computedStyle = getComputedStyle(document.documentElement)
+      const bgPrimary = computedStyle.getPropertyValue('--cell-dead').trim()
+      const textSecondary = computedStyle.getPropertyValue('--cell-alive').trim()
+
+      ctx.canvas.width = dimensions.width
+      ctx.canvas.height = dimensions.height
+      
+      ctx.fillStyle = bgPrimary
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      const grid = gridRef.current
+      ctx.fillStyle = textSecondary
       for (let y = 0; y < dimensions.gridH; y++) {
         for (let x = 0; x < dimensions.gridW; x++) {
-          ctx.fillStyle = grid[y][x] ? ALIVE_COLOR : DEAD_COLOR;
-          ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+          if (grid[y][x] === 1) {
+            ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE - 1, CELL_SIZE - 1)
+          }
         }
       }
-    };
+    }
+
     const tick = () => {
-      gridRef.current = nextGrid(gridRef.current, dimensions.gridW, dimensions.gridH);
-      draw();
-      if (running) {
-        animationId = window.setTimeout(tick, TICK_MS);
-      }
-    };
-    draw();
-    animationId = window.setTimeout(tick, TICK_MS);
-    return () => {
-      running = false;
-      window.clearTimeout(animationId);
-    };
-  }, [dimensions.gridW, dimensions.gridH]);
+      if (!running) return
+      gridRef.current = nextGrid(gridRef.current, dimensions.gridW, dimensions.gridH)
+      draw()
+      setTimeout(tick, TICK_MS)
+    }
+
+    draw()
+    tick()
+    return () => { running = false }
+  }, [dimensions.gridW, dimensions.gridH, theme]) // Re-run effect when theme changes
 
   return (
     <canvas
       ref={canvasRef}
-      width={dimensions.width}
-      height={dimensions.height}
+      className="fixed inset-0 -z-10 w-screen h-screen"
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: -1,
-        pointerEvents: 'none',
-        opacity: 1,
-        background: 'transparent',
-        transition: 'background 0.3s, opacity 0.3s',
+        backgroundColor: theme === 'dark' ? '#000000' : '#ffffff',
+        transition: 'background-color var(--transition)'
       }}
       aria-hidden="true"
     />
-  );
-};
-
-export default GameOfLifeBackground;
+  )
+}
