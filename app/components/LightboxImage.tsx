@@ -38,7 +38,10 @@ export function LightboxImage(props: LightboxImageProps) {
       className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm"
       style={{ animation: "fadeIn 0.2s" }}
     >
-      <div className="relative w-[80vw] h-[80vh] max-w-[80vw] max-h-[80vh] flex items-center justify-center">
+      <div
+        className="relative w-[80vw] h-[80vh] max-w-[80vw] max-h-[80vh] flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={() => setOpen(false)}
           className="absolute -top-4 -right-4 bg-black/70 text-white rounded-full p-1 hover:bg-black/90 transition"

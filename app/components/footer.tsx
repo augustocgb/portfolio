@@ -18,16 +18,6 @@ function ArrowIcon() {
 export default function Footer() {
   return (
     <footer className="mt-20 text-text-secondary">
-      <div className="flex gap-4 justify-center">
-        <a
-          href="https://github.com/vercel/next.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:opacity-80"
-        >
-          
-        </a>
-      </div>
       <p className="text-center mt-4 opacity-60">
         © {new Date().getFullYear()} Augusto Butkewitsch. All rights reserved.
       </p>
