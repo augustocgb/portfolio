@@ -9,7 +9,7 @@ export function Button({ href, icon, label }: ButtonProps) {
     <a
       href={href}
       className="bg-bg-primary/30 backdrop-blur-sm border border-text-secondary/10 rounded-lg p-4 
-                 hover:bg-bg-secondary/50 transition-[background,border] duration-300 flex items-center justify-center"
+                 hover:bg-bg-secondary/50 transition-background duration-300 flex items-center justify-center"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
