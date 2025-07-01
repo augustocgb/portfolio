@@ -16,6 +16,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${GeistSans.variable} no-flash`} suppressHydrationWarning>
       <head>
+        <title>Augusto Butkewitsch | Portfolio</title>
+        <link rel="icon" href="/favicon.svg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
