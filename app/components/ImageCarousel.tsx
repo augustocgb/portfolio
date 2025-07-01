@@ -38,34 +38,34 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
       {images.length > 1 && (
         <button
           onClick={e => { e.stopPropagation(); prev(); }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-3 hover:bg-black/80 transition z-[1010]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-3 text-white transition-colors hover:bg-white hover:text-black z-[1010]"
           aria-label="Previous"
-          style={{}}
+          type="button"
         >
-          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" fill="none" stroke="white" strokeWidth="2"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
         </button>
       )}
       <div
-        className="relative w-[80vw] h-[80vh] max-w-[80vw] max-h-[80vh] flex items-center justify-center"
-        onClick={e => e.stopPropagation()}
+        className="relative flex h-[80vh] w-[80vw] max-h-[80vh] max-w-[80vw] items-center justify-center"
       >
         <button
-          onClick={() => setLightboxOpen(false)}
-          className="absolute -top-4 -right-4 bg-black/70 text-white rounded-full p-1 hover:bg-black/90 transition"
+          onClick={e => { e.stopPropagation(); setLightboxOpen(false); }}
+          className="absolute top-2 right-2 rounded-full cursor-pointer bg-black/70 p-1 text-white transition-colors hover:bg-white/20 hover:text-red-500"
           aria-label="Close"
           style={{ zIndex: 10 }}
+          type="button"
         >
           <svg width="24" height="24" viewBox="0 0 24 24">
-            <line x1="6" y1="6" x2="18" y2="18" stroke="white" strokeWidth="2" />
-            <line x1="18" y1="6" x2="6" y2="18" stroke="white" strokeWidth="2" />
+            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" />
+            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" />
           </svg>
         </button>
-        <div className="relative w-full h-full">
+        <div className="relative h-full w-full">
           <Image
             src={images[current].src}
             alt={images[current].alt}
             fill
-            className="object-contain rounded-lg shadow-2xl"
+            className="rounded-lg object-contain shadow-2xl"
             style={{ objectFit: "contain" }}
             sizes="80vw"
             priority
@@ -76,24 +76,24 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
       {images.length > 1 && (
         <button
           onClick={e => { e.stopPropagation(); next(); }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-3 hover:bg-black/80 transition z-[1010]"
+          className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-3 text-white transition-colors hover:bg-white hover:text-black z-[1010]"
           aria-label="Next"
-          style={{}}
+          type="button"
         >
-          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="white" strokeWidth="2"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
         </button>
       )}
     </div>
   )
 
   return (
-    <div className={`relative group ${className ?? ""}`} style={style}>
+    <div className={`group relative ${className ?? ""}`} style={style}>
       <div className="relative w-full aspect-[3/2]">
         <Image
           src={images[current].src}
           alt={images[current].alt}
           fill
-          className="object-cover rounded-lg transition-transform duration-200 cursor-pointer"
+          className="cursor-pointer rounded-lg object-cover transition-transform duration-200"
           style={{ display: 'block' }}
           onClick={() => setLightboxOpen(true)}
           sizes="(max-width: 768px) 100vw, 600px"
@@ -102,7 +102,7 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
           <>
             <button
               onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition"
+              className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-2 text-white opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
               aria-label="Previous"
               type="button"
               tabIndex={-1}
@@ -111,18 +111,18 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
             </button>
             <button
               onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition"
+              className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-2 text-white opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
               aria-label="Next"
               type="button"
               tabIndex={-1}
             >
               <svg width="28" height="28" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="white" strokeWidth="2"/></svg>
             </button>
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1">
               {images.map((img, idx) => (
                 <button
                   key={img.src}
-                  className={`w-2 h-2 rounded-full ${idx === current ? "bg-white" : "bg-white/40"} transition`}
+                  className={`h-2 w-2 rounded-full ${idx === current ? "bg-white" : "bg-white/40"} transition`}
                   onClick={() => setCurrent(idx)}
                   aria-label={`Go to image ${idx + 1}`}
                   type="button"

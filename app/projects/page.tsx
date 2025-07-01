@@ -50,6 +50,29 @@ export default function ProjectsPage() {
               </div>
             </div>
           </div>
+
+          {/* Tech stack tags */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Python
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              pygame
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              matplotlib
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              numpy
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Genetic Algorithm
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              AI
+            </span>
+          </div>
+
         </Card>
 
         {/* DeepPhish */}
@@ -95,8 +118,36 @@ export default function ProjectsPage() {
                 Made in 24 hours for Catapult Hacks.
               </p>
             </div>
-            
           </div>
+
+          {/* Tech stack tags */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Python
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Google Apps Script
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              SQLite
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              OLLama
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Click CLI
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              XGBoost Classification Model
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Google SMTP
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Cybersecurity
+            </span>
+          </div>
+
         </Card>
 
         {/* Raymarching Julia Sets */}
@@ -110,6 +161,7 @@ export default function ProjectsPage() {
                 Features include adjustable parameters for set generation, real-time feedback on escape rates, and visual explanations of the underlying mathematical concepts. 
                 Made with Unity with C# for the core logic and custom shader programming. 
                 This tool serves as both a learning resource and a demonstration of optimized rendering strategies for complex mathematical structures.
+                Made for Purdue Experimental Mathematics Lab 2025 (PXML).
                 </p>
             </div>
 
@@ -173,6 +225,32 @@ export default function ProjectsPage() {
                 </div>
             </div>
           </div>
+
+          {/* Tech stack tags */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              C#
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Unity
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Shader Programming
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              WebGL
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Fractals
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Dynamical Systems
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              PXML
+            </span>
+          </div>
+
         </Card>
 
         {/* Stock Watchlist */}
@@ -216,8 +294,27 @@ export default function ProjectsPage() {
                 This project demonstrates seamless integration of Flask for backend logic, yfinance for data retrieval, and JSON for lightweight data storage.
               </p>
             </div>
-            
           </div>
+
+          {/* Tech stack tags */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Python
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              Flask
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              JSON
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              yfinance
+            </span>
+            <span className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20">
+              HTML/CSS
+            </span>
+          </div>
+
         </Card>
       </div>
     </div>
