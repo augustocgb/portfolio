@@ -14,7 +14,7 @@ const projects: ProjectCardProps[] = [
 			{ src: "/images/blocks-ga-2.png", alt: "Block Game Genetic Algorithm 2" },
 		],
 		tech: ["Python", "pygame", "matplotlib", "numpy", "Genetic Algorithm", "AI"],
-		category: "AI",
+		category: "Artificial Intelligence",
 		date: "2025-05-28",
 		links: [
 			{
@@ -120,7 +120,7 @@ const projects: ProjectCardProps[] = [
 			{ src: "/images/watchlist-2.png", alt: "Stock Watchlist 2" },
 		],
 		tech: ["Python", "Flask", "JSON", "yfinance", "HTML/CSS"],
-		category: "Web App",
+		category: "Finance",
 		date: "2025-06-26",
 		links: [
 			{
@@ -169,16 +169,18 @@ export default function ProjectsPage() {
 		<div className="space-y-16 animate-fade-in">
 			<h1 className="text-5xl font-bold mb-8 text-center">Work Examples</h1>
 			<div className="max-w-2xl mx-auto flex flex-col items-center gap-4 mb-8 w-full">
+
 				<input
 					type="text"
 					placeholder="Search projects..."
 					value={search}
 					onChange={e => setSearch(e.target.value)}
-					className="px-3 py-2 rounded border border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40 min-w-[220px] w-full"
+					className="px-3 py-2 rounded border-2 border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40 min-w-[220px] w-full"
 				/>
+
 				<div className="flex flex-wrap gap-4 items-center justify-center w-full">
 
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <label className="text-sm opacity-70">Sort by: </label>
             <select
               value={sort}
@@ -188,9 +190,9 @@ export default function ProjectsPage() {
               <option value="date">Date</option>
               <option value="category">Category</option>
             </select>
-            </div>
+          </div>
 
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <label className="text-sm opacity-70">Category: </label>
             <select
               value={category}
@@ -202,15 +204,17 @@ export default function ProjectsPage() {
               <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
-
           </div>
+
 				</div>
 			</div>
+
 			<div className="grid gap-8 md:grid-cols-1">
 				{filtered.map((project) => (
 					<ProjectCard key={project.title} {...project} />
 				))}
 			</div>
+
 		</div>
 	);
 }
