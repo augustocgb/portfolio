@@ -7,7 +7,7 @@ const TICK_MS = 180
 
 function randomGrid(width: number, height: number): number[][] {
   return Array(height).fill(0).map(() => 
-    Array(width).fill(0).map(() => Math.random() > 0.7 ? 1 : 0)
+    Array(width).fill(0).map(() => Math.random() > 0.85 ? 1 : 0)
   )
 }
 

@@ -2,17 +2,18 @@ interface ButtonProps {
   href: string;
   icon: React.ReactNode;
   label: string;
+  openInNewTab?: boolean;
 }
 
-export function Button({ href, icon, label }: ButtonProps) {
+export function Button({ href, icon, label, openInNewTab = true }: ButtonProps) {
   return (
     <a
       href={href}
-      className="group bg-bg-primary/30 backdrop-blur-sm border-2 border-[--text-secondary] rounded-lg p-4 
-           hover:bg-[--secondary] hover:text-white hover:shadow-lg hover:scale-105 hover:opacity-100 transition-all duration-200 flex items-center justify-center relative overflow-visible"
+      className="group bg-bg-primary/80 backdrop-blur-sm border-2 border-[--text-secondary] rounded-lg p-4 
+           hover:bg-[--secondary] hover:text-white hover:shadow-lg hover:scale-105 hover:opacity-100 transition-all duration-200 flex items-center justify-center relative overflow-visible shadow-sm"
       style={{ transition: 'all var(--transition)' }}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
       aria-label={label}
     >
       <span className="[&>*]:transition-none z-10 text-[--text-primary]">

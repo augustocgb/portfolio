@@ -175,7 +175,7 @@ export default function ProjectsPage() {
 					placeholder="Search projects..."
 					value={search}
 					onChange={e => setSearch(e.target.value)}
-					className="px-3 py-2 rounded border-2 border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40 min-w-[220px] w-full"
+					className="px-3 py-2 rounded border-2 border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40 min-w-[220px] w-full shadow-md"
 				/>
 
 				<div className="flex flex-wrap gap-4 items-center justify-center w-full">
