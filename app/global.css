@@ -3,10 +3,11 @@
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
-  --bg-tertiary: #e0ecf8;
+  --bg-tertiary: #98ccff;
   --text-primary: #1d1d1d;
-  --text-secondary: #666666;
+  --text-secondary: #ffffff;
   --border: #EEEEEE;
+  --border-secondary: #e0ecf8;
   --cell-alive: #fafafa;
   --cell-dead: #ffffff;
   --accent: #47a3f3;
@@ -16,13 +17,14 @@
 :root.dark {
   --bg-primary: #121212;
   --bg-secondary: #1f1f1f;
-  --bg-tertiary: #04151f;
+  --bg-tertiary: #062030;
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
+  --text-secondary: #000000;
   --border: #0e0e0e;
+  --border-secondary: #04151f;
   --cell-alive: #0e0e0e;
   --cell-dead: #000000;
-  --accent: #4c97f8;
+  --accent: #386bad;
 }
 
 * {

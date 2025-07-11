@@ -32,8 +32,8 @@ export function Button({
 }: ButtonProps) {
   // Define the two different styles
   const standardClasses = `
-    group bg-[--bg-tertiary] backdrop-blur-sm border-1.5 border-[--border] rounded-lg p-4 
-    text-[--text-primary] hover:bg-accent hover:text-[--bg-primary] hover:shadow-lg 
+    group bg-[--bg-tertiary] backdrop-blur-sm border-1.5 border-[--bg-tertiary] rounded-lg p-4 
+    text-[--text-primary] hover:bg-[--accent] hover:text-[--bg-primary] hover:shadow-lg 
     transition-all duration-200 flex items-center justify-center 
     relative shadow-md disabled:opacity-50 disabled:cursor-not-allowed
   `;
