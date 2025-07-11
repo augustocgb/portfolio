@@ -29,16 +29,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
         />
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider>
           <GameOfLifeBackground />
           <Navbar />
-          <main className="max-w-4xl mx-auto px-4 py-8">
+          <main className="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
             {children}
+          </main>
             <Footer />
             <Analytics />
             <SpeedInsights />
-          </main>
         </ThemeProvider>
       </body>
     </html>

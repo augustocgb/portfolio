@@ -17,7 +17,7 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="mt-20 text-text-secondary">
+    <footer className="py-8 text-text-secondary">
       <p className="text-center mt-4 opacity-60">
         © {new Date().getFullYear()} Augusto Butkewitsch. All rights reserved.
       </p>

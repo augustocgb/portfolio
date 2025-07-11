@@ -135,7 +135,7 @@ const projects: ProjectCardProps[] = [
 		],
 	},
 
-  /* Sentiment Portfolio */
+  /* Sentiment Trading Strategy */
 	{
 		title: "Sentiment Analysis Trading Strategy",
 		description:
@@ -157,6 +157,40 @@ const projects: ProjectCardProps[] = [
 				),
 				label: "GitHub",
 			},
+		],
+	},
+
+	/* Portfolio Website */
+	{
+		title: "Portfolio Website",
+		description:
+			"You are here! Engineered and deployed a dynamic, fully responsive personal portfolio website from the ground up using Next.js and React, with a focus on creating a clean, modern user experience. Key functionalities include a theme-aware UI with seamless light/dark mode toggling, a secure contact form that leverages a custom API route for email delivery, and an interactive projects gallery with real-time search and filtering capabilities. The front-end was built with a custom library of reusable React components and styled with Tailwind CSS, ensuring a consistent and maintainable design system. The entire application is deployed on Vercel, utilizing its CI/CD pipeline for automated builds, hosting, and analytics.",
+		images: [
+			{ src: "/images/portfolio-web-1.png", alt: "Portfolio Website in Light Mode" },
+			{ src: "/images/portfolio-web-2.png", alt: "Portfolio Website in Dark Mode" },
+		],
+		tech: ["Next.js", "React", "Tailwind CSS", "Web", "Resend", "Vercel"],
+		category: "Visualization",
+		date: "2025-05-21",
+		links: [
+			{
+				href: "https://github.com/augustocgb/portfolio",
+				icon: (
+					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+					</svg>
+				),
+				label: "GitHub",
+			},
+			{
+				href: "https://augustocgb.com",
+				icon: (
+					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
+						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
+					</svg>
+				),
+				label: "Website",
+			}
 		],
 	},
 ];
@@ -200,45 +234,52 @@ export default function ProjectsPage() {
 					placeholder="Search projects..."
 					value={search}
 					onChange={e => setSearch(e.target.value)}
-					className="px-3 py-2 rounded border-2 border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40 min-w-[220px] w-full shadow-md"
+					className="px-3 py-2 rounded border-2 border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none min-w-[220px] w-full shadow-md"
 				/>
 
 				<div className="flex flex-wrap gap-4 items-center justify-center w-full">
 
-          <div className="flex items-center gap-2">
-            <label className="text-sm opacity-70">Sort by: </label>
-            <select
-              value={sort}
-              onChange={e => setSort(e.target.value as 'date' | 'category')}
-              className="px-2 py-1 rounded border border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40"
-            >
-              <option value="date">Date</option>
-              <option value="category">Category</option>
-            </select>
-          </div>
+					<div className="flex items-center gap-2">
+						<label className="text-sm opacity-70">Sort by: </label>
+						<select
+						value={sort}
+						onChange={e => setSort(e.target.value as 'date' | 'category')}
+						className="px-2 py-1 rounded border border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none shadow-md"
+						>
+						<option value="date">Date</option>
+						<option value="category">Category</option>
+						</select>
+					</div>
 
-          <div className="flex items-center gap-2">
-            <label className="text-sm opacity-70">Category: </label>
-            <select
-              value={category}
-              onChange={e => setCategory(e.target.value)}
-              className="px-2 py-1 rounded border border-[--text-secondary]/20 bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-2 focus:ring-accent/40"
-            >
-              <option value="">All</option>
-              {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-          </div>
+					<div className="flex items-center gap-2">
+						<label className="text-sm opacity-70">Category: </label>
+						<select
+						value={category}
+						onChange={e => setCategory(e.target.value)}
+						className="px-2 py-1 rounded border border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none shadow-md"
+						>
+						<option value="">All</option>
+						{categories.map((cat) => (
+						<option key={cat} value={cat}>{cat}</option>
+						))}
+						</select>
+					</div>
 
 				</div>
 			</div>
 
 			<div className="grid gap-8 md:grid-cols-1">
-				{filtered.map((project) => (
-					<ProjectCard key={project.title} {...project} />
-				))}
-			</div>
+                {filtered.length > 0 ? (
+                    filtered.map((project) => (
+                        <ProjectCard key={project.title} {...project} />
+                    ))
+                ) : (
+                    <div className="text-center py-16 text-[--text-primary]">
+                        <p className="text-xl font-semibold">No projects found</p>
+                        <p className="mt-2 opacity-80">Try adjusting your search or filters.</p>
+                    </div>
+                )}
+            </div>
 
 		</div>
 	);

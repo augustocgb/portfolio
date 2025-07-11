@@ -7,6 +7,7 @@ module.exports = {
         'bg-secondary': 'var(--bg-secondary)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
+        'border': 'var(--border)',
         accent: 'var(--accent)',
       },
       animation: {

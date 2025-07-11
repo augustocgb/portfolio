@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Card } from './components/Card'
 import { Button } from './components/Button'
+import ContactForm from './components/ContactForm'
 
 export default function HomePage() {
   return (
@@ -8,7 +9,7 @@ export default function HomePage() {
       <section className="text-center">
         <div className="animate-fade-up">
           <Image
-            className="rounded-full border-[2px] mx-auto mb-8 border-[--text-primary] shadow-lg"
+            className="rounded-full border-[2px] mx-auto mb-8 border-[--text-primary] shadow-xl"
             src="/images/headshot_fbla.png"
             alt="Augusto Butkewitsch"
             width={220}
@@ -66,7 +67,7 @@ export default function HomePage() {
           <div className="animate-fade-up">
             <h3 className="font-semibold">Purdue University</h3>
             <p>BSc in Computer Science, Mathematics, and Statistics</p>
-            <p className="opacity-80">Expected May 2027 • GPA: 3.9/4.0</p>
+            <p className="opacity-70">Expected May 2027 • GPA: 3.9/4.0</p>
           </div>
         </Card>
 
@@ -79,17 +80,20 @@ export default function HomePage() {
                   <Button
                   href="/projects"
                   label="View Projects"
+                  showLabel={false}
                   icon={
-                  <span className="font-semibold text-[--text-primary]">View Projects</span>
+                    <span className="font-semibold text-[--text-primary]">View Projects</span>
                   }
                   openInNewTab={false}
                 />
                 </div>
             </div>
         </Card>
-
-        </div>
       </div>
+
+        <ContactForm />
+
     </div>
+  </div>
   )
 }

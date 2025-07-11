@@ -28,7 +28,7 @@ export function ProjectCard({
 
         <div>
           <h2 className="text-2xl font-bold mb-4">{title}</h2>
-          <div className="mt-4 text-xs opacity-70">{category} &middot; {date}</div>
+          <div className="mt-4 text-sm opacity-70">{category} &middot; {date}</div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 items-start">
@@ -56,7 +56,7 @@ export function ProjectCard({
         {tech.map((label) => (
             <span
                 key={label}
-                className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--text-secondary]/20"
+                className="bg-[--bg-secondary] text-[--text-primary] px-3 py-1 rounded-full text-xs font-semibold shadow border border-[--border]"
               >
                 {label}
               </span>
