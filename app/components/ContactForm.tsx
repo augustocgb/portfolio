@@ -12,7 +12,7 @@ interface EmailData {
   message: string;
 }
 
-const ContactForm: React.FC = () => {
+export default function ContactForm({ id }: { id?: string }) {
   // --- Local State Management ---
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -73,7 +73,7 @@ const ContactForm: React.FC = () => {
   return (
     <Card>
       <h2 className="text-2xl font-bold text-[--text-primary] mb-6 text-center">Contact Me</h2>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate id={id}>
         {/* Name Input Field */}
         <div className="mb-6">
           <label htmlFor="name" className="block text-sm font-medium text-[--text-primary] mb-2">
@@ -146,5 +146,3 @@ const ContactForm: React.FC = () => {
     </Card>
   );
 };
-
-export default ContactForm;
