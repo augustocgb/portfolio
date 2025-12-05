@@ -64,7 +64,7 @@ export default function HomePage() {
         
       <div className="grid gap-8 md:grid-cols-2">
         <Card>
-          <h2 className="text-2xl font-bold mb-4">Education</h2>
+          <h2 className="text-2xl font-bold mb-4">🎓 Education</h2>
           <div className="animate-fade-up">
             <h3 className="font-semibold">Purdue University</h3>
             <p>BSc in Computer Science, Mathematics, and Statistics</p>
@@ -73,7 +73,7 @@ export default function HomePage() {
         </Card>
 
         <Card>
-          <h2 className="text-2xl font-bold mb-4">Projects</h2>
+          <h2 className="text-2xl font-bold mb-4">🛠️ Projects</h2>
             <div className="animate-fade-up">
             <p>Explore my software, data, finance, and AI projects.</p>
             <div className="h-2" />

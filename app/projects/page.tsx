@@ -4,6 +4,40 @@ import { useState, useMemo } from "react";
 import { ProjectCard, ProjectCardProps } from "../components/ProjectCard";
 
 const projects: ProjectCardProps[] = [
+	/* Stochastic Web Browser */
+	{
+		title: "Stochastic Web Browser",
+		description:
+			"The Stochastic Web Browser is an experimental web application that simulates a browsing experience where the internet doesn't exist until you ask for it. Instead of fetching real websites, it uses the Google Gemini API to hallucinate search results and generate complete, functional HTML web pages in real-time based on your queries. Features include a generative search engine, dual modes (Fast/Fancy) for page generation, a library system to save/download pages as HTML content, and simulated interactivity where forms and links continue the generative journey. Built with a No-Build React setup for instant prototyping.",
+		images: [
+			{ src: "/images/genai-browser-1.png", alt: "Stochastic Web Browser Interface" },
+			{ src: "/images/genai-browser-2.png", alt: "AI Generated Website Example" },
+		],
+		tech: ["React", "Tailwind CSS", "Node.js", "Vercel", "Google Gemini API", "Vercel"],
+		category: "Artificial Intelligence",
+		date: "2025-11-10",
+		links: [
+			{
+				href: "https://github.com/augustocgb/genai-browser",
+				icon: (
+					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+					</svg>
+				),
+				label: "GitHub",
+			},
+			{
+				href: "https://genai-browser.vercel.app/",
+				icon: (
+					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
+						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
+					</svg>
+				),
+				label: "Live Demo",
+			},
+		],
+	},
+
 	/* Genetic Algorithm for Block Game */
   {
 		title: "Genetic Algorithm for Block Game",
