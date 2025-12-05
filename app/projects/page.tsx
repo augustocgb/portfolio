@@ -27,7 +27,7 @@ const projects: ProjectCardProps[] = [
 				label: "GitHub",
 			},
 			{
-				href: "https://genai-browser.vercel.app/",
+				href: "https://stochastic-web.augustocgb.com/",
 				icon: (
 					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
 						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
