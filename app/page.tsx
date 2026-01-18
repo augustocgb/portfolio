@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="animate-fade-up">
             <h3 className="font-semibold">Purdue University</h3>
             <p>BSc in Computer Science, Mathematics, and Statistics</p>
-            <p className="opacity-70">Expected May 2027 • GPA: 3.9/4.0</p>
+            <p className="opacity-70">Expected May 2027 • GPA: 3.92/4.0</p>
           </div>
         </Card>
 
