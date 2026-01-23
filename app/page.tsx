@@ -11,7 +11,7 @@ export default function HomePage() {
       <section className="text-center">
         <div className="animate-fade-up">
           <Image
-            className="rounded-full border-2 border-[--text-primary] mx-auto mb-8 shadow-lg transition-transform duration-500"
+            className="rounded-full border-2 border-solid border-[--text-primary] mx-auto mb-8 shadow-lg transition-transform duration-500"
             src="/images/headshot_fbla.png"
             alt="Augusto Butkewitsch"
             width={220}

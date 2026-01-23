@@ -127,12 +127,6 @@ export function CommandMenu() {
       perform: () => router.push('/projects'),
     },
     {
-      id: 'theme',
-      label: theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode',
-      icon: theme === 'dark' ? <FaSun /> : <FaMoon />,
-      perform: () => toggleTheme(),
-    },
-    {
       id: 'contact',
       label: 'Contact Me',
       icon: <FaEnvelope />,
@@ -144,6 +138,12 @@ export function CommandMenu() {
             if (el) el.scrollIntoView({ behavior: 'smooth' })
         }, 300)
       },
+    },
+    {
+      id: 'theme',
+      label: theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+      icon: theme === 'dark' ? <FaSun /> : <FaMoon />,
+      perform: () => toggleTheme(),
     },
     {
       id: 'joke',
