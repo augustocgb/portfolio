@@ -240,7 +240,7 @@ export function CommandMenu() {
           )}
         </div>
         
-        <div className="px-4 py-2 bg-[--bg-secondary] border-t border-[--border] text-xs text-[--text-secondary] flex justify-between">
+        <div className="px-4 py-2 bg-[--bg-secondary] border-t border-[--border] text-xs text-[--text-primary] flex justify-between">
             <span>Navigation</span>
             <div className="flex gap-2">
                 <span className="bg-[--bg-primary] border border-[--border] px-1 rounded">↵</span>
@@ -253,16 +253,16 @@ export function CommandMenu() {
         </div>
         
         {/* System Monitor Section */}
-        <div className="px-4 py-3 bg-[--bg-primary] border-t border-[--border] text-[10px] text-[--text-secondary] font-mono grid grid-cols-4 gap-2 opacity-80">
+        <div className="px-4 py-3 bg-[--bg-primary] border-t border-[--border] text-[10px] text-[--text-primary] font-mono grid grid-cols-4 gap-2">
             <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-1 opacity-70">
+                <div className="flex items-center gap-1 opacity-80">
                     <FaRulerCombined className="w-2.5 h-2.5" />
                     <span>VIEWPORT</span>
                 </div>
                 <span>{stats.width}x{stats.height}</span>
             </div>
             <div className="flex flex-col gap-0.5">
-                 <div className="flex items-center gap-1 opacity-70">
+                 <div className="flex items-center gap-1 opacity-80">
                     <span className="font-bold border border-current rounded-[2px] px-0.5 text-[8px] leading-none">SC</span>
                     <span>SCROLL</span>
                 </div>
@@ -274,18 +274,18 @@ export function CommandMenu() {
                 </div>
             </div>
             <div 
-                className="flex flex-col gap-0.5 cursor-pointer hover:text-[--text-primary] transition-colors"
+                className="flex flex-col gap-0.5 cursor-pointer hover:text-[--accent] transition-colors"
                 onClick={() => window.open('https://github.com/augustocgb/portfolio', '_blank')}
                 title="View Source on GitHub"
             >
-                <div className="flex items-center gap-1 opacity-70">
+                <div className="flex items-center gap-1 opacity-80">
                     <FaCodeBranch className="w-2.5 h-2.5" />
                     <span>LAST UPDATED</span>
                 </div>
                 <span>{stats.lastUpdate}</span>
             </div>
             <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-1 opacity-70">
+                <div className="flex items-center gap-1 opacity-80">
                     <FaClock className="w-2.5 h-2.5" />
                     <span>LOCAL</span>
                 </div>

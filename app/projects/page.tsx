@@ -230,26 +230,26 @@ export default function ProjectsPage() {
 
 				<div className="flex flex-wrap gap-4 items-center justify-center w-full">
 
-					<div className="flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-none outline-none ring-0 focus:ring-0">
+					<div className="relative flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-2 border-[--border] shadow-md outline-none ring-0 focus:ring-0 cursor-pointer hover:opacity-80 transition-all duration-200">
 						<FaSortAmountDown className="w-4 h-4 text-[--text-secondary]" />
-						<label className="text-sm opacity-70 whitespace-nowrap">Sort by:</label>
+						<label className="text-sm opacity-70 whitespace-nowrap pointer-events-none">Sort by: <span className="text-[--text-primary] font-medium ml-1 capitalize">{sort}</span></label>
 						<select
 						value={sort}
 						onChange={e => setSort(e.target.value as 'date' | 'category')}
-						className="bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-0 border-none outline-none ring-0 cursor-pointer"
+						className="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-[--bg-secondary] text-[--text-primary]"
 						>
 						<option value="date" className="bg-[--bg-secondary] text-[--text-primary]">Date</option>
 						<option value="category" className="bg-[--bg-secondary] text-[--text-primary]">Category</option>
 						</select>
 					</div>
 
-					<div className="flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-none outline-none ring-0 focus:ring-0">
+					<div className="relative flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-2 border-[--border] shadow-md outline-none ring-0 focus:ring-0 cursor-pointer hover:opacity-80 transition-all duration-200">
 						<FaFilter className="w-4 h-4 text-[--text-secondary]" />
-						<label className="text-sm opacity-70 whitespace-nowrap">Category:</label>
+						<label className="text-sm opacity-70 whitespace-nowrap pointer-events-none">Category: <span className="text-[--text-primary] font-medium ml-1">{category || 'All'}</span></label>
 						<select
 						value={category}
 						onChange={e => setCategory(e.target.value)}
-						className="bg-[--bg-secondary] text-[--text-primary] focus:outline-none focus:ring-0 border-none outline-none ring-0 cursor-pointer"
+						className="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-[--bg-secondary] text-[--text-primary]"
 						>
 						<option value="" className="bg-[--bg-secondary] text-[--text-primary]">All</option>
 						{categories.map((cat) => (

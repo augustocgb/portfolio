@@ -85,7 +85,7 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
 
   return (
     <div className={`group relative ${className ?? ""}`} style={style}>
-      <div className="relative w-full aspect-[16/9] bg-[--bg-secondary]">
+      <div className="relative w-full aspect-[3/2] bg-[--bg-secondary]">
         <Image
           src={images[current].src}
           alt={images[current].alt}
