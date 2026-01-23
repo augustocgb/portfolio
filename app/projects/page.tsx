@@ -211,7 +211,7 @@ export default function ProjectsPage() {
 	}, [search, category, sort]);
 
 	return (
-		<div className="space-y-16 animate-fade-in">
+		<div className="space-y-16 animate-fade-in pt-12">
 			<h1 className="text-5xl font-bold mb-8 text-center">Work Examples</h1>
 			<div className="max-w-2xl mx-auto flex flex-col items-center gap-4 mb-8 w-full">
 

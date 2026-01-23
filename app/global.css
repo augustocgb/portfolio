@@ -2,7 +2,7 @@
 
 :root {
   --bg-primary: #ffffff;
-  --bg-secondary: #f0f0f0;
+  --bg-secondary: #f9fafb;
   --bg-tertiary: #98ccff;
   --text-primary: #1d1d1d;
   --text-secondary: #9e9e9e;
@@ -25,6 +25,44 @@
   --cell-alive: #0e0e0e;
   --cell-dead: #000000;
   --accent: #435976;
+}
+
+/* Rainbow Mode Overrides */
+html.rainbow-mode h1,
+html.rainbow-mode h2,
+html.rainbow-mode h3,
+html.rainbow-mode h4,
+html.rainbow-mode h5,
+html.rainbow-mode h6,
+html.rainbow-mode .font-bold {
+  color: var(--accent) !important;
+  transition: color 0.1s linear;
+}
+
+html.rainbow-mode svg {
+  color: var(--accent) !important;
+  fill: currentColor;
+  transition: color 0.1s linear;
+}
+
+html.rainbow-mode .border-\[--border\],
+html.rainbow-mode .border {
+  border-color: var(--accent) !important;
+  transition: border-color 0.1s linear;
+}
+
+/* Infinite Marquee Animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
 
 * {

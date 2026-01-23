@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import React from 'react';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const recipientEmail = process.env.RECIPIENT_EMAIL;
 
 // A simple React component for the email body.
@@ -22,6 +21,19 @@ const EmailTemplate = ({ name, email, message }) => (
 
 export async function POST(request) {
   console.log("API route hit. Processing POST request...");
+
+  const resendApiKey = process.env.RESEND_API_KEY;
+
+  if (!resendApiKey) {
+     console.error('RESEND_API_KEY is not configured in environment variables.');
+     return NextResponse.json(
+       { message: 'Server configuration error: Email service is not configured.' },
+       { status: 500 }
+     );
+  }
+  
+  // Initialize Resend inside the handler to avoid build-time errors
+  const resend = new Resend(resendApiKey);
 
   // Check for the recipient email configuration first.
   if (!recipientEmail) {

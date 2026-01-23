@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Card } from './components/Card'
 import { Button } from './components/Button'
 import ContactForm from './components/ContactForm'
+import Typewriter from './components/Typewriter'
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from 'react-icons/fa'
 
 export default function HomePage() {
@@ -18,9 +19,12 @@ export default function HomePage() {
             priority
           />
           <h1 className="text-5xl font-bold mb-4">Augusto Butkewitsch</h1>
-          <p className="text-2xl opacity-80 mb-8">
-            Analytical | Problem Solver | Innovator
-          </p>
+          <div className="h-8 mb-8 flex justify-center items-center">
+             <Typewriter 
+                words={["Analytical Thinker", "Problem Solver", "Innovator", "Full Stack Developer", "AI Enthusiast"]} 
+                className="text-2xl opacity-80"
+             />
+          </div>
           <div className="flex gap-4 justify-center">
             <Button
               href="https://github.com/augustocgb"

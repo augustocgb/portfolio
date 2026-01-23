@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { FaSearch, FaHome, FaBriefcase, FaMoon, FaSun, FaEnvelope, FaMagic, FaTimes } from 'react-icons/fa'
+import { FaSearch, FaHome, FaBriefcase, FaMoon, FaSun, FaEnvelope, FaMagic, FaTimes, FaRulerCombined, FaCodeBranch, FaClock, FaWifi, FaGithub, FaPalette, FaLink, FaMapMarkedAlt } from 'react-icons/fa'
 import { useTheme } from './ThemeProvider'
 
 interface Action {
@@ -16,9 +16,19 @@ export function CommandMenu() {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [rainbowMode, setRainbowMode] = useState(false)
   const router = useRouter()
   const { theme, toggleTheme } = useTheme()
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const [stats, setStats] = useState({
+    time: '',
+    width: 0,
+    height: 0,
+    scroll: 0,
+    lastUpdate: 'Loading...',
+    online: true
+  })
 
   // Toggle open/close with Ctrl+K or Cmd+K
   useEffect(() => {
@@ -38,6 +48,68 @@ export function CommandMenu() {
       setTimeout(() => inputRef.current?.focus(), 50)
       setQuery('')
       setSelectedIndex(0)
+
+      // Start System Monitor Logic when menu is open
+      const updateStats = () => {
+        const now = new Date()
+        setStats(prev => ({
+          ...prev,
+          time: now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+          width: window.innerWidth,
+          height: window.innerHeight,
+          online: navigator.onLine
+        }))
+      }
+
+      // Fetch latest portfolio commit
+      fetch('https://api.github.com/users/augustocgb/events/public')
+        .then(res => res.json())
+        .then(data => {
+            const pushEvent = data.find((e: any) => e.type === 'PushEvent' && e.repo.name === 'augustocgb/portfolio')
+            if (pushEvent) {
+                const date = new Date(pushEvent.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+                setStats(prev => ({ ...prev, lastUpdate: date }))
+            } else {
+                setStats(prev => ({ ...prev, lastUpdate: 'Unknown' }))
+            }
+        })
+        .catch(() => setStats(prev => ({ ...prev, lastUpdate: 'Error' })))
+
+      const handleScroll = () => {
+        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight
+        const scrollProgress = scrollTotal > 0 ? Math.round((window.scrollY / scrollTotal) * 100) : 0
+        setStats(prev => ({ ...prev, scroll: scrollProgress }))
+      }
+
+      const handleResize = () => {
+          setStats(prev => ({ ...prev, width: window.innerWidth, height: window.innerHeight }))
+      }
+
+      const handleOnline = () => setStats(prev => ({ ...prev, online: true }))
+      const handleOffline = () => setStats(prev => ({ ...prev, online: false }))
+
+      const timer = setInterval(() => {
+          setStats(prev => ({
+              ...prev,
+              time: new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })
+          }))
+      }, 1000)
+
+      window.addEventListener('scroll', handleScroll)
+      window.addEventListener('resize', handleResize)
+      window.addEventListener('online', handleOnline)
+      window.addEventListener('offline', handleOffline)
+      
+      updateStats()
+      handleScroll()
+
+      return () => {
+        clearInterval(timer)
+        window.removeEventListener('scroll', handleScroll)
+        window.removeEventListener('resize', handleResize)
+        window.removeEventListener('online', handleOnline)
+        window.removeEventListener('offline', handleOffline)
+      }
     }
   }, [open])
 
@@ -125,7 +197,7 @@ export function CommandMenu() {
           <FaSearch className="w-5 h-5 text-[--text-secondary]" />
           <input
             ref={inputRef}
-            className="flex-1 px-4 py-4 bg-transparent text-[--text-primary] placeholder-[--text-secondary] outline-none"
+            className="flex-1 px-4 py-4 bg-transparent text-[--text-primary] placeholder-[--text-secondary] outline-none border-none ring-0 focus:ring-0"
             placeholder="Type a command or search..."
             value={query}
             onChange={(e) => {
@@ -179,6 +251,48 @@ export function CommandMenu() {
                 <span>to close</span>
             </div>
         </div>
+        
+        {/* System Monitor Section */}
+        <div className="px-4 py-3 bg-[--bg-primary] border-t border-[--border] text-[10px] text-[--text-secondary] font-mono grid grid-cols-4 gap-2 opacity-80">
+            <div className="flex flex-col gap-0.5">
+                <div className="flex items-center gap-1 opacity-70">
+                    <FaRulerCombined className="w-2.5 h-2.5" />
+                    <span>VIEWPORT</span>
+                </div>
+                <span>{stats.width}x{stats.height}</span>
+            </div>
+            <div className="flex flex-col gap-0.5">
+                 <div className="flex items-center gap-1 opacity-70">
+                    <span className="font-bold border border-current rounded-[2px] px-0.5 text-[8px] leading-none">SC</span>
+                    <span>SCROLL</span>
+                </div>
+                <div className="flex items-center gap-1">
+                    <span>{stats.scroll}%</span>
+                    <div className="h-1 w-8 bg-[--bg-secondary] rounded-full overflow-hidden">
+                        <div className="h-full bg-[--accent]" style={{ width: `${stats.scroll}%` }} />
+                    </div>
+                </div>
+            </div>
+            <div 
+                className="flex flex-col gap-0.5 cursor-pointer hover:text-[--text-primary] transition-colors"
+                onClick={() => window.open('https://github.com/augustocgb/portfolio', '_blank')}
+                title="View Source on GitHub"
+            >
+                <div className="flex items-center gap-1 opacity-70">
+                    <FaCodeBranch className="w-2.5 h-2.5" />
+                    <span>LAST UPDATED</span>
+                </div>
+                <span>{stats.lastUpdate}</span>
+            </div>
+            <div className="flex flex-col gap-0.5">
+                <div className="flex items-center gap-1 opacity-70">
+                    <FaClock className="w-2.5 h-2.5" />
+                    <span>LOCAL</span>
+                </div>
+                <span>{stats.time}</span>
+            </div>
+        </div>
+
       </div>
     </div>
   )

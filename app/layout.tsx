@@ -9,6 +9,8 @@ import GameOfLifeBackground from './components/GameOfLifeBackground'
 import { ThemeProvider } from './components/ThemeProvider'
 import { CommandMenu } from './components/CommandMenu'
 
+import ScrollToTop from './components/ScrollToTop'
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -34,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider>
           <GameOfLifeBackground />
           <CommandMenu />
+          <ScrollToTop />
           <Navbar />
           <main className="max-w-4xl mx-auto px-4 pt-24 pb-8 flex-grow w-full">
             {children}
