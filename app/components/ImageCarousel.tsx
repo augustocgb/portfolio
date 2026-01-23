@@ -2,6 +2,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { createPortal } from "react-dom"
+import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa'
 
 interface CarouselImage {
   src: string
@@ -30,44 +31,40 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
   // Lightbox modal
   const modal = (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm"
-      style={{ animation: "fadeIn 0.2s" }}
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in"
       onClick={() => setLightboxOpen(false)}
     >
       {/* Left arrow */}
       {images.length > 1 && (
         <button
           onClick={e => { e.stopPropagation(); prev(); }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-3 text-white transition-colors hover:bg-white hover:text-black z-[1010]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 z-[1010]"
           aria-label="Previous"
           type="button"
         >
-          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+          <FaChevronLeft className="w-8 h-8" />
         </button>
       )}
       <div
-        className="relative flex h-[80vh] w-[80vw] max-h-[80vh] max-w-[80vw] items-center justify-center"
+        className="relative flex h-[85vh] w-[85vw] max-h-[85vh] max-w-[85vw] items-center justify-center"
       >
         <button
           onClick={e => { e.stopPropagation(); setLightboxOpen(false); }}
-          className="absolute top-2 right-2 rounded-full cursor-pointer bg-black/70 p-1 text-white transition-colors hover:bg-white/20 hover:text-red-500"
+          className="absolute -top-12 right-0 rounded-full cursor-pointer p-2 text-white/70 transition-colors hover:text-white"
           aria-label="Close"
           style={{ zIndex: 10 }}
           type="button"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" />
-            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" />
-          </svg>
+          <FaTimes className="w-8 h-8" />
         </button>
         <div className="relative h-full w-full">
           <Image
             src={images[current].src}
             alt={images[current].alt}
             fill
-            className="rounded-lg object-contain shadow-2xl"
+            className="rounded-lg object-contain"
             style={{ objectFit: "contain" }}
-            sizes="80vw"
+            sizes="90vw"
             priority
           />
         </div>
@@ -76,11 +73,11 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
       {images.length > 1 && (
         <button
           onClick={e => { e.stopPropagation(); next(); }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-3 text-white transition-colors hover:bg-white hover:text-black z-[1010]"
+          className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 z-[1010]"
           aria-label="Next"
           type="button"
         >
-          <svg width="36" height="36" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+          <FaChevronRight className="w-8 h-8" />
         </button>
       )}
     </div>
@@ -88,12 +85,12 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
 
   return (
     <div className={`group relative ${className ?? ""}`} style={style}>
-      <div className="relative w-full aspect-[3/2]">
+      <div className="relative w-full aspect-[16/9] bg-[--bg-secondary]">
         <Image
           src={images[current].src}
           alt={images[current].alt}
           fill
-          className="cursor-pointer rounded-lg object-cover transition-transform duration-200"
+          className="cursor-pointer object-cover transition-transform duration-200"
           style={{ display: 'block' }}
           onClick={() => setLightboxOpen(true)}
           sizes="(max-width: 768px) 100vw, 600px"
@@ -101,32 +98,29 @@ export function ImageCarousel({ images, className, style }: ImageCarouselProps) 
         {images.length > 1 && (
           <>
             <button
-              onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-2 text-white opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white opacity-0 transition hover:bg-black/70 group-hover:opacity-100"
               aria-label="Previous"
               type="button"
-              tabIndex={-1}
             >
-              <svg width="28" height="28" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" fill="none" stroke="white" strokeWidth="2"/></svg>
+              <FaChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/60 p-2 text-white opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white opacity-0 transition hover:bg-black/70 group-hover:opacity-100"
               aria-label="Next"
               type="button"
-              tabIndex={-1}
             >
-              <svg width="28" height="28" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="white" strokeWidth="2"/></svg>
+              <FaChevronRight className="w-5 h-5" />
             </button>
-            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1">
+            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5 p-1 px-2 rounded-full bg-black/20 backdrop-blur-[2px]">
               {images.map((img, idx) => (
                 <button
                   key={img.src}
-                  className={`h-2 w-2 rounded-full ${idx === current ? "bg-white" : "bg-white/40"} transition`}
-                  onClick={() => setCurrent(idx)}
+                  className={`h-1.5 w-1.5 rounded-full transition-all ${idx === current ? "bg-white w-3" : "bg-white/50"}`}
+                  onClick={(e) => { e.stopPropagation(); setCurrent(idx); }}
                   aria-label={`Go to image ${idx + 1}`}
                   type="button"
-                  tabIndex={-1}
                 />
               ))}
             </div>

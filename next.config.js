@@ -1,3 +1,6 @@
 module.exports = {
-  devIndicators: false,
+  devIndicators: {
+    buildActivity: false, 
+    appIsrStatus: false, 
+  },
 };
