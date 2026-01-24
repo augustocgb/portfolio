@@ -1,7 +1,7 @@
-"use client";
-
+"use client"
 import { useState, useMemo } from "react";
 import { ProjectCard, ProjectCardProps } from "../components/ProjectCard";
+import { FaFilter, FaSortAmountDown, FaSearch, FaGithub, FaGlobe, FaExternalLinkAlt, FaChartLine, FaCode } from 'react-icons/fa';
 
 const projects: ProjectCardProps[] = [
 	/* Stochastic Web Browser */
@@ -19,26 +19,18 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/genai-browser",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 			{
 				href: "https://stochastic-web.augustocgb.com/",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
-					</svg>
-				),
+				icon: <FaGlobe className="w-5 h-5" />,
 				label: "Live Demo",
 			},
 		],
 	},
 
-	/* Genetic Algorithm for Block Game */
+  /* Genetic Algorithm for Block Game */
   {
 		title: "Genetic Algorithm for Block Game",
 		description:
@@ -53,18 +45,14 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/blocks-ga",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 		],
 	},
 
   /* DeepPhish */
-	{
+  {
 		title: "DeepPhish",
 		description:
 			"Worked as part of a team to develop DeepPhish, an advanced cybersecurity consulting tool designed to predict and test phishing attacks. The project involved creating a sophisticated classification model to analyze and predict user behavior in response to phishing attempts based on their details and tech literacy, using machine learning and data analytics. Using these results, the tool utilizes self-hosted LLMs to generate personalized phishing emails, with varying difficulty levels, to simulate real-world phishing attacks and assess employee responses. An automated reporting system then generates a detailed PDF with insight into individual employees and provides recommendations. Made in 24 hours for Catapult Hacks.",
@@ -80,18 +68,14 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/ChristopherTrumpet/deepphish",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 		],
 	},
 
   /* Algorithms for Julia Sets */
-	{
+  {
 		title: "Algorithms for Julia Sets",
 		description:
 			"Developed both 2D and 3D visualizers for Julia sets and related fractals, utilizing rasterization and raymarching techniques, respectively. The project focuses on delivering an interactive and educational platform that allows users to explore the intricate mathematical properties of fractals in real time. Features include adjustable parameters for set generation, real-time feedback on escape rates, and visual explanations of the underlying mathematical concepts. Made with Unity with C# for the core logic and custom shader programming. This tool serves as both a learning resource and a demonstration of optimized rendering strategies for complex mathematical structures. Made for Purdue Experimental Mathematics Lab 2025 (PXML).",
@@ -107,45 +91,29 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/raymarch",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "Raymarch",
 			},
 			{
 				href: "https://github.com/augustocgb/julia",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "Julia",
 			},
 			{
 				href: "https://augustocgb.github.io/raymarch/",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
-					</svg>
-				),
+				icon: <FaExternalLinkAlt className="w-5 h-5" />,
 				label: "3D Demo",
 			},
 			{
 				href: "https://augustocgb.github.io/julia/",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
-					</svg>
-				),
+				icon: <FaExternalLinkAlt className="w-5 h-5" />,
 				label: "2D Demo",
 			},
 		],
 	},
 
   /* Stock Watchlist */
-	{
+  {
 		title: "Stock Watchlist",
 		description:
 			"Created a Python Flask web application that allows users to build and manage a personalized stock watchlist. The app leverages the yfinance library to fetch real-time stock prices and key financial data, providing up-to-date information for each ticker in the user's list. Users can add or remove stocks, view live updates, and customize their watchlist according to their interests. All user data and preferences are stored in a local JSON file, ensuring persistence across sessions without the need for a database. This project demonstrates seamless integration of Flask for backend logic, yfinance for data retrieval, and JSON for lightweight data storage.",
@@ -159,18 +127,14 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/stock-watchlist",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 		],
 	},
 
   /* Sentiment Trading Strategy */
-	{
+  {
 		title: "Sentiment Analysis Trading Strategy",
 		description:
 			"Developed and backtested a quantitative trading strategy that leverages Natural Language Processing (NLP) to capitalize on market sentiment. The project involved an automated Python pipeline that sourced daily news headlines for a universe of over 100 stocks using pygooglenews, performed sentiment analysis on each headline with NLTK's VADER model, and aggregated these scores monthly. A long-only portfolio was systematically constructed by selecting and rebalancing into the top 5 stocks with the highest positive sentiment each month. The entire backtesting framework, from data acquisition (yfinance) and cleaning to performance calculation and visualization, was built using Python with Pandas, NumPy, and Matplotlib.",
@@ -184,11 +148,7 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/sentiment-investing",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 		],
@@ -209,20 +169,12 @@ const projects: ProjectCardProps[] = [
 		links: [
 			{
 				href: "https://github.com/augustocgb/portfolio",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-					</svg>
-				),
+				icon: <FaGithub className="w-5 h-5" />,
 				label: "GitHub",
 			},
 			{
 				href: "https://augustocgb.com",
-				icon: (
-					<svg viewBox="0 0 24 24" className="w-6 h-6" style={{ fill: 'var(--text-primary)' }}>
-						<path d="M4 5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4zm0 2h16v9H4V7zm5 12v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
-					</svg>
-				),
+				icon: <FaGlobe className="w-5 h-5" />,
 				label: "Website",
 			}
 		],
@@ -259,42 +211,49 @@ export default function ProjectsPage() {
 	}, [search, category, sort]);
 
 	return (
-		<div className="space-y-16 animate-fade-in">
+		<div className="space-y-16 animate-fade-in pt-12">
 			<h1 className="text-5xl font-bold mb-8 text-center">Work Examples</h1>
 			<div className="max-w-2xl mx-auto flex flex-col items-center gap-4 mb-8 w-full">
 
-				<input
-					type="text"
-					placeholder="Search projects..."
-					value={search}
-					onChange={e => setSearch(e.target.value)}
-					className="px-3 py-2 rounded border-2 border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none min-w-[220px] w-full shadow-md"
-				/>
+				<div className="relative w-full text-[--text-secondary]">
+					<div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+						<FaSearch className="w-5 h-5" />
+					</div>
+					<input
+						type="text"
+						placeholder="Search projects..."
+						value={search}
+						onChange={e => setSearch(e.target.value)}
+						className="pl-10 pr-4 py-2 rounded-lg border-2 border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none w-full shadow-md transition-all duration-200 focus:border-[--accent] focus:ring-2 focus:ring-[--accent]/20"
+					/>
+				</div>
 
 				<div className="flex flex-wrap gap-4 items-center justify-center w-full">
 
-					<div className="flex items-center gap-2">
-						<label className="text-sm opacity-70">Sort by: </label>
+					<div className="relative flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-2 border-[--border] shadow-md outline-none ring-0 focus:ring-0 cursor-pointer hover:opacity-80 transition-all duration-200">
+						<FaSortAmountDown className="w-4 h-4 text-[--text-secondary]" />
+						<label className="text-sm opacity-70 whitespace-nowrap pointer-events-none">Sort by: <span className="text-[--text-primary] font-medium ml-1 capitalize">{sort}</span></label>
 						<select
 						value={sort}
 						onChange={e => setSort(e.target.value as 'date' | 'category')}
-						className="px-2 py-1 rounded border border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none shadow-md"
+						className="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-[--bg-secondary] text-[--text-primary]"
 						>
-						<option value="date">Date</option>
-						<option value="category">Category</option>
+						<option value="date" className="bg-[--bg-secondary] text-[--text-primary]">Date</option>
+						<option value="category" className="bg-[--bg-secondary] text-[--text-primary]">Category</option>
 						</select>
 					</div>
 
-					<div className="flex items-center gap-2">
-						<label className="text-sm opacity-70">Category: </label>
+					<div className="relative flex items-center gap-2 bg-[--bg-secondary] px-3 py-1.5 rounded-lg border-2 border-[--border] shadow-md outline-none ring-0 focus:ring-0 cursor-pointer hover:opacity-80 transition-all duration-200">
+						<FaFilter className="w-4 h-4 text-[--text-secondary]" />
+						<label className="text-sm opacity-70 whitespace-nowrap pointer-events-none">Category: <span className="text-[--text-primary] font-medium ml-1">{category || 'All'}</span></label>
 						<select
 						value={category}
 						onChange={e => setCategory(e.target.value)}
-						className="px-2 py-1 rounded border border-[--border] bg-[--bg-secondary] text-[--text-primary] focus:outline-none shadow-md"
+						className="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-[--bg-secondary] text-[--text-primary]"
 						>
-						<option value="">All</option>
+						<option value="" className="bg-[--bg-secondary] text-[--text-primary]">All</option>
 						{categories.map((cat) => (
-						<option key={cat} value={cat}>{cat}</option>
+						<option key={cat} value={cat} className="bg-[--bg-secondary] text-[--text-primary]">{cat}</option>
 						))}
 						</select>
 					</div>

@@ -1,13 +1,13 @@
 // components/Button.tsx
 import React from 'react';
-import Link from 'next/link'; // IMPORTED Link from next/link
+import Link from 'next/link';
 
 // Define the props for the more flexible Button component
 interface ButtonProps {
   href?: string;
   icon?: React.ReactNode;
-  label?: string; // For the tooltip on icon-only buttons
-  children?: React.ReactNode; // For visible text content
+  label?: string;
+  children?: React.ReactNode;
   openInNewTab?: boolean;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;

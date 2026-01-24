@@ -7,6 +7,9 @@ import { Navbar } from './components/nav'
 import Footer from './components/footer'
 import GameOfLifeBackground from './components/GameOfLifeBackground'
 import { ThemeProvider } from './components/ThemeProvider'
+import { CommandMenu } from './components/CommandMenu'
+
+import ScrollToTop from './components/ScrollToTop'
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -32,8 +35,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="flex flex-col min-h-screen">
         <ThemeProvider>
           <GameOfLifeBackground />
+          <CommandMenu />
+          <ScrollToTop />
           <Navbar />
-          <main className="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+          <main className="max-w-4xl mx-auto px-4 pt-24 pb-8 flex-grow w-full">
             {children}
           </main>
             <Footer />

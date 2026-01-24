@@ -93,14 +93,14 @@ export default function GameOfLifeBackground() {
     draw()
     tick()
     return () => { running = false }
-  }, [dimensions.gridW, dimensions.gridH, theme]) // Re-run effect when theme changes
+  }, [dimensions.gridW, dimensions.gridH, theme])
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 w-screen h-screen"
+      className="fixed inset-0 -z-10 w-full h-full block"
       style={{
-        backgroundColor: theme === 'dark' ? '#000000' : '#ffffff',
+        backgroundColor: theme === 'dark' ? '#09090b' : '#ffffff',
         transition: 'background-color var(--transition)'
       }}
       aria-hidden="true"

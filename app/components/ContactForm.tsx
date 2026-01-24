@@ -2,8 +2,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Button } from './Button'; // Import the newly refactored Button
+import { Button } from './Button';
 import { Card } from './Card';
+import { FaPaperPlane } from 'react-icons/fa';
 
 // Define the shape of the form data
 interface EmailData {
@@ -130,7 +131,8 @@ export default function ContactForm({ id }: { id?: string }) {
           <Button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full font-semibold hover:text-[--text-primary] cursor-pointer" 
+            className="w-full font-semibold cursor-pointer" 
+            icon={<FaPaperPlane className="w-4 h-4 mr-2" />}
           >
             {status === 'loading' ? 'Sending...' : 'Send Message'}
           </Button>
