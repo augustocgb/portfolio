@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="py-8 mt-auto border-t border-[--border] bg-[--bg-primary]">
       <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-[--text-secondary] text-sm font-medium">
-          © {new Date().getFullYear()} Augusto Butkewitsch. All Rights Reserved.
+          © {new Date().getFullYear()} Augusto Butkewitsch. All rights reserved.
         </div>
         
         <div className="flex gap-4">
