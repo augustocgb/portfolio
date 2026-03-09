@@ -43,10 +43,6 @@ export function Navbar() {
             })}
           </div>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-1 px-2 py-1 rounded bg-[--bg-secondary] border border-[--border] text-xs text-[--text-secondary] font-mono">
-                <span>⌘</span>
-                <span>K</span>
-            </div>
             <ThemeToggle />
           </div>
         </div>
